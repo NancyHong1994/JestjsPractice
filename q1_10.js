@@ -94,9 +94,7 @@ export function q5 () {
  * 6. determine whether a given year is a leap year in the Gregorian calendar.
  */
 export function q6 (givenYear) {
-    const date = new Date()
-    date.setFullYear(givenYear, 1)
-    if (date.getDate() === 29) {
+    if ((givenYear % 4 === 0) && (givenYear % 100 !== 0)) {
         return 'This is a leap year!'
     } else {
         return 'This is not a leap year!'
