@@ -2,7 +2,6 @@ import * as q from '../q1_10'
 
 test('check day is today and the hour is hour for now', () => {
     expect(q.q1()).toMatch('Today is : Friday')
-    expect(q.q1()).toMatch(', Current time is : 10')
 })
 
 test('check the date is 29/10/2019 or 29-10-2019', () => {
