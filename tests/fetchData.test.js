@@ -1,13 +1,14 @@
-import mockAxios from '../mocks/axios'
 import { fetchData } from '../fetchData'
+import axios from 'axios'
+
+jest.mock('axios')
 
 test('fetch name from the API', () => {
     const name = 'Good TV'
-    mockAxios.get.mockImplementation(() =>
-        Promise.resolve(name)
-    )
-    // expect(mockAxios.get).toHaveBeenCalledTimes(1)
+    const resp = { data: { name: name } }
+    axios.get.mockResolvedValue(resp)
     return fetchData().then(response => {
         expect(response).toEqual(name)
+        expect(axios.get).toHaveBeenCalledTimes(1)
     })
 })
