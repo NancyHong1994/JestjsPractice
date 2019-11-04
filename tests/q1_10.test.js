@@ -1,4 +1,4 @@
-import * as q from '../q1_10'
+import * as q from '../src/q1_10'
 
 test('check day is today and the hour is hour for now', () => {
     expect(q.q1()).toMatch('Today is : Monday')
