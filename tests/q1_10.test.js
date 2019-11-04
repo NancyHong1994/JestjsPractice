@@ -1,12 +1,12 @@
 import * as q from '../src/q1_10'
 
 test('check day is today and the hour is hour for now', () => {
-    expect(q.q1()).toMatch('Today is : Monday')
+    expect(q.q1()).toMatch('Today is : Tuseday')
 })
 
 test('check the date is mm/dd/yyyy or mm-dd-yyyy', () => {
-    expect(q.q3()).toMatch('11/4/2019')
-    expect(q.q3()).toMatch('11-4-2019')
+    expect(q.q3()).toMatch('11/5/2019')
+    expect(q.q3()).toMatch('11-5-2019')
 })
 
 test('check if the area of the triangle is 14.697', () => {
@@ -27,5 +27,5 @@ test('check the resource of the year is 1/1/yyyy and the day is Sunday', () => {
 })
 
 test('find the days left until next Christmas', () => {
-    expect(q.q9()).toBe(51)
+    expect(q.q9()).toBe(50)
 })
