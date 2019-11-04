@@ -1,16 +1,19 @@
-import { fetchName } from '../src/fetchData'
 import axios from 'axios'
-import { JestEnvironment } from '@jest/environment'
+import { fetchData } from '../src/fetchData'
 
 jest.mock('axios')
 
-test('fetch name from the API', async () => {
-    const name = 'Good TV'
+test('fetch data from the api with the channel partner id', async () => {
+    const channelPartnerId = 1
+    const url = 'https://stagapi.ezystream.com/v4/channels/' + channelPartnerId.toString()
+
     axios.get.mockImplementation(
-        () => Promise.resolve({ data : { name } })
+        () => Promise.resolve({ data : { id : channelPartnerId } })
     )
-    const channelName = await fetchName()
-    expect(channelName).toEqual(name)
+
+    const channelData = await fetchData(channelPartnerId)
+    expect(channelData.id).toEqual(channelPartnerId)
     expect(axios.get).toHaveBeenCalled()
     expect(axios.get).toHaveBeenCalledTimes(1)
+    expect(axios.get).toHaveBeenCalledWith(url, { id : channelPartnerId })
 })
